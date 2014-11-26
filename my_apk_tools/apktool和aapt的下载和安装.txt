@@ -1,0 +1,12 @@
+
+	1. wget https://android-apktool.googlecode.com/files/apktool1.5.2.tar.bz2  
+	2. wget https://android-apktool.googlecode.com/files/apktool-install-linux-r05-ibot.tar.bz2 
+	
+	把两个文件所在目录加入到path中。 
+
+
+可能出现的错误：
+1、http://kinggoo.com/app-apktoolpackage.htm
+
+2、keytool error: gnu.javax.crypto.keyring.MalformedKeyringException: incorrect magic
+在Linux上导入证书时出现这个错误，原因是keytool默认指向了gnu的了，使用jdk所在目录下的keytool就可以了。
