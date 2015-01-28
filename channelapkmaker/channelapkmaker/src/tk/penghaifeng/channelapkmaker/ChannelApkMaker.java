@@ -114,7 +114,7 @@ public class ChannelApkMaker {
 				writer.close();
 				repackApk(channelName, sourceTempDirPath, outputDirPath);
 				log(i + "、" + channelName
-						+ "渠道包打包成功!!!!!!!!!!!!!");
+						+ "渠道包打包成功!!!!!!!!!!!!!\n\r\n\r");
 				i++;
 			}
 		} finally {
