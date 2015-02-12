@@ -10,3 +10,6 @@
 
 2、keytool error: gnu.javax.crypto.keyring.MalformedKeyringException: incorrect magic
 在Linux上导入证书时出现这个错误，原因是keytool默认指向了gnu的了，使用jdk所在目录下的keytool就可以了。
+
+3、jdk7和jdk8的情况下jarsigner签名的包，可能在某些版本的android上无法安装，此时要加上-digestalg SHA1 -sigalg MD5withRSA选项，
+只能对未签名的包进行签名，不能重复签名。
