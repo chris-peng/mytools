@@ -3,6 +3,7 @@ package tk.penghaifeng.channelapkmaker;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,7 +29,7 @@ public class ChannelApkMaker {
 		}
 	}
 	private static final String CHANNEL_ELEMENT_NAME = "UMENG_CHANNEL";
-	private static final String ANDROID_MANIFEST_FILE_ENCODING = "UTF-8";
+	private static final String ANDROID_MANIFEST_FILE_ENCODING = "utf-8";
 
 	private String apkPath, channelListFilePath, outputDirPath, apkName,
 			sourceTempDirPath;
@@ -70,7 +71,7 @@ public class ChannelApkMaker {
 		sourceTempDirPath = apkDirPath + File.separator + apkName
 				+ System.currentTimeMillis();
 		try {
-			String cmd = cmd_apktool + " d -s -d -f " + apkPath + " "
+			String cmd = cmd_apktool + " d -s -d -f " + apkPath + " -o "
 					+ sourceTempDirPath;
 			Process p = Runtime.getRuntime().exec(cmd);
 			printCmdResult(p);
@@ -108,7 +109,7 @@ public class ChannelApkMaker {
 						androidManifestDocument, channelName);
 				OutputFormat format = OutputFormat.createPrettyPrint();
 				format.setEncoding(ANDROID_MANIFEST_FILE_ENCODING); // 指定XML编码
-				XMLWriter writer = new XMLWriter(new FileWriter(
+				XMLWriter writer = new XMLWriter(new FileOutputStream(
 						androidManifestFile), format);
 				writer.write(androidManifestDocument);
 				writer.close();
